@@ -1,0 +1,27 @@
+<div class="container">
+    <h3>User Registration Form</h3> <hr/>
+    <form #userForm="ngForm" (ngSubmit)="submitData(userForm)">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" #nameRef="ngModel" required pattern="^[a-zA-Z\s]{5,15}$" ngModel/>
+
+            <div *ngIf="nameRef.errors && (nameRef.dirty) || nameRef.touched" class="text text-danger">
+
+                <div *ngIf="nameRef.errors?.['required']">Please enter name</div>
+                <div *ngIf="nameRef.errors?.['pattern']">Please enter alphabets only & it should be 5 to 15</div>
+
+            </div>
+
+        </div>
+
+        <div ngModelGroup="address">
+           <div class="form-group">
+              <label>City</label>
+              <input type="text" name="city" #cityRef="ngModel" required pattern="^[a-zA-Z\s]{5,15}$" ngModel/>
+           </div>
+       </div>
+
+       <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+</div>

@@ -1,0 +1,11 @@
+{
+  "employees": [
+    {
+      "name": "chiru",
+      "address": {
+        "city": "vizag"
+      },
+      "id": 1
+    }
+  ]
+}
